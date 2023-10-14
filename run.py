@@ -16,7 +16,7 @@
 
 # data = sales.get_all_values()
 
-data = {
+data_dict = {
     'sales': {
         'cheese ham': [28, 26, 28, 25, 22, 27, 28],
         'tom moz': [31, 32, 28, 32, 28, 27, 26],
@@ -79,6 +79,23 @@ def validate_data(values):
 
     return True
 
+def update_sales_worksheet(data):
+    """
+    Update sales worksheet, add new row with the list data provided
+    """
+    updated_data_dict = data_dict.copy()
+    print("Updating sales worksheet...\n")
+    for key in data_dict['sales']:
+                updated_data_dict['sales'][key] = data_dict['sales'][key] + sales_data
+
+    # sales_worksheet = SHEET.worksheet("sales")
+    # sales_worksheet.append_row(data)
+    # print("Sales worksheet updated successfully.\n")
+
+
 data = get_sales_data()
+sales_data = [int(num) for num in data]
+update_sales_worksheet(sales_data)
+print(data_dict['sales'])
 
 
