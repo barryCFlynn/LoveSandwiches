@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -17,4 +18,5 @@ sales = SHEET.worksheet('sales')
 data = sales.get_all_values()
 
 print(data)
+
 
