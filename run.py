@@ -44,7 +44,7 @@ data = {
 }
 
 
-def get_sales_date():
+def get_sales_data():
     """
     Get sales figures input from the user
     """
@@ -53,10 +53,20 @@ def get_sales_date():
     print("Example: 10,20,30,40,50,60\n")
 
     data_str = input("Enter your data here: ")
-    print(f"The data provided is {data_str}")
+    
+    sales_data = data_str.split(",")
+    validate_data(sales_data)
 
-get_sales_date()
+def validate_data(values):
+    """
+    to validate the data entered by the user
+    """
+    try:
+        if len(values) != 6:
+            raise ValueError(
+                f"Exactly 6 values required, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
 
-
-
-
+get_sales_data()
